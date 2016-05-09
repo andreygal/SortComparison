@@ -3,13 +3,13 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
+#include <algorithm>
 
 #include "quicksort.h"			// vector sorting algorithms
 #include "merge_sort.h"
 #include "insert_ascending.h"
 #include "insertion_sort.h" 
 #include "sort_timer.h"			// timer class
-
 using namespace std;
 
 // outputs the first 5 and last 5 items in the vector
@@ -28,7 +28,7 @@ void timeSort(vector<int>& v, sortType sort,
 
 int main()
 {
-	const int VECTORSIZE = 10000;
+	const int VECTORSIZE = 100000;
 	vector<int> v1, v2, v3, v4;
 	unsigned int rndNum, i;
 	unsigned seed = time(0);
@@ -45,13 +45,34 @@ int main()
 	}
 
 	// repeat process for the merge sort
+	cout << "Random input for merge sort" << endl;
 	timeSort(v1, MERGESORT, "MergeSort");
+	cout << "Sorted input for merge sort" << endl;
+	timeSort(v1, MERGESORT, "MergeSort");
+	cout << "Reverse sorted input for merge sort" << endl; 
+	reverse(v1.begin(), v1.end());
+	timeSort(v1, MERGESORT, "MergeSort");
+	
 
 	// repeat process for the quick sort
+	cout << "Random input for quicksort" << endl;
+	timeSort(v2, QUICKSORT, "Quicksort");
+	cout << "Sorted input for quicksort" << endl;
+	timeSort(v2, QUICKSORT, "Quicksort");
+	cout << "Reverse sorted input for quicksort" << endl;
+	reverse(v2.begin(), v2.end());
 	timeSort(v2, QUICKSORT, "Quicksort");
 
+
 	// repeat process for the insertion sort
-	timeSort(v3, INSERTIONSORT, "Insertion sort");
+	cout << "Random input for insertion sort" << endl;
+	timeSort(v3, INSERTIONSORT, "Insertion Sort");
+	cout << "Sorted input for Insertion Sort" << endl;
+	timeSort(v3, INSERTIONSORT, "Insertion Sort");
+	cout << "Reverse sorted input for Insertion Sort" << endl;
+	reverse(v3.begin(), v3.end());
+	timeSort(v3, INSERTIONSORT, "Insertion Sort");
+
 
 	system("pause");
 	return 0;

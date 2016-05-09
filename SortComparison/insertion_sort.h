@@ -4,7 +4,7 @@
 template <typename T, typename Compare>
 void InsertionSort(std::vector<T>& input_vector, Compare comp) {
 	int i, j, n = input_vector.size();
-	int key;
+	T key;
 
 	for (i = 1; i < n; i++) {
 		key = input_vector[i];

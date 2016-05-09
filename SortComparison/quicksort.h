@@ -63,8 +63,6 @@ int RandPartition(T* arr, int begin, int end) {
 	return Partition(arr, begin, end); 
 }
 
-
-
 template <typename T>
 void Quicksort(std::vector<T>& arr, int begin, int end) {
 	if (begin < end) {
